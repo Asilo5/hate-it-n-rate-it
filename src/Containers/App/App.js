@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './App.scss';
+import { Route } from 'react-router-dom';
+import MoviesContainer from '../MoviesContainer/MoviesContainer';
+// import Login from '../Login/Login';
+
 
 class App extends Component {
   constructor() {
@@ -15,7 +19,8 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        
+        <Route exact path='/' component={MoviesContainer} /> 
+        {/* <Route exact path='/login' component={Login} /> */}
       </main>
     );
   }
