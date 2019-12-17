@@ -1,5 +1,4 @@
 import React from 'react';
-import { Provider }
 import './App.scss';
 
 function App() {
