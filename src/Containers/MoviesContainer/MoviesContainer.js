@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Movie from '../Movie/Movie';
 
 const MoviesContainer = ({ movies }) => {
-    console.log(movies)
+    console.log(movies);
+    let theMovie = movies.map((movie) => {
+        return <Movie key={movie.id} {...movie} /> 
+    })
     return (
         <section>
-           <h2> Movie Container </h2>
+           {theMovie}
         </section>
     )
 }
