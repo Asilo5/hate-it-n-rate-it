@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { fetchUser } from '../../utils/apiCalls';
+import { NavLink } from 'react-router-dom';
 import { getUser } from '../../actions';
 import { connect } from 'react-redux';
 
-class Login extends Component {
+export class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -37,10 +38,12 @@ class Login extends Component {
             value={this.state.password} 
             onChange={(e) => this.handleChange(e)}
           />
-          <button 
+          <NavLink
+            className='login_button'
+            to='/'
             type='button'
             onClick={this.handleSubmit}
-          >LOGIN</button>
+          >LOGIN </NavLink>
         </form>
       </section>
     )

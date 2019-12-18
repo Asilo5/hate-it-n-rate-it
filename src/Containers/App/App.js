@@ -10,12 +10,9 @@ import NavBar from '../../Components/NavBar/NavBar';
 import Movie from '../Movie/Movie';
 
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super();
-    this.state = {
-      user: ''
-    }
   }
 
   componentDidMount() {

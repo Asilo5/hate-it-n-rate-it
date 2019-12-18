@@ -1,7 +1,7 @@
 import React from 'react';
 import './Movie.scss';
 
-const Movie = ({ average_rating, id, backdrop_path, overview, poster_path, release_date, title}) => {
+export const Movie = ({ average_rating, id, backdrop_path, overview, poster_path, release_date, title}) => {
     return (
         <section className='movie'>
             <p>{average_rating}</p>
