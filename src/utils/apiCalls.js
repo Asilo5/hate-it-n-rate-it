@@ -11,8 +11,6 @@ export const fetchUser = async (email, password) => {
   const response = await fetch('https://rancid-tomatillos.herokuapp.com/api/v1/login', options);
 
   const user = await response.json();
-  console.log(user);
-  console.log({user});
 
   return user;
 
