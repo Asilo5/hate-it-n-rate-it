@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import MoviesDisplay from '../MoviesDisplay/MoviesDisplay';
 import './MoviesContainer.scss'
 
-const MoviesContainer = ({ movies }) => {
+export const MoviesContainer = ({ movies }) => {
     let theMovie = movies.map((movie) => {
         return <MoviesDisplay key={movie.id} {...movie} /> 
     })
@@ -14,7 +14,7 @@ const MoviesContainer = ({ movies }) => {
     )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
     movies : state.movies
 })
 
