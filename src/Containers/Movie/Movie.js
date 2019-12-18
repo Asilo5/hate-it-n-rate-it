@@ -1,4 +1,5 @@
 import React from 'react';
+import './Movie.scss';
 
 const Movie = ({ average_rating, id, backdrop_path, overview, poster_path, release_date, title}) => {
     return (
