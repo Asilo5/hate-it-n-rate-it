@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import { addMoviesData } from '../../actions/index';
-// import Login from '../Login/Login';
+import Login from '../Login/Login';
 
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <main className="App">
         <Route exact path='/' component={MoviesContainer} /> 
-        {/* <Route exact path='/login' component={Login} /> */}
+        <Route exact path='/login' component={Login} />
       </main>
     );
   }
@@ -31,5 +31,6 @@ class App extends Component {
 const mapDispatchToProps = dispatch => ({
   addMoviesData: movies => dispatch( addMoviesData(movies))
 })
+
 
 export default connect(null, mapDispatchToProps)(App);
