@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './NavBar.scss'
 
 const NavBar = () => {
   return (
     <div className='NavBar'>
-      <button> Sign In </button>
+      <NavLink className='button' to='/login'> Sign In </NavLink>
     </div>
   )
 }
