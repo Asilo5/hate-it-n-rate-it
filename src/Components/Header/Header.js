@@ -7,7 +7,7 @@ const Header = ({ user }) => {
   return (
     <div className='header'>
     <h1><span>Hate</span> It 'N <span>Rate</span> It</h1>
-    {user === {} ? <p> Welcome {user.name} </p> : null
+    {!user.name ? null : <p>Welcome <span>{user.name}</span></p>
     }
     </div>
   )
@@ -17,4 +17,4 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(Header);  
