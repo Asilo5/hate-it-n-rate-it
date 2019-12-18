@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MoviesContainer from './MoviesContainer';
+import { MoviesContainer, mapStateToProps } from './MoviesContainer';
 
 describe('MoviesContainer', () => {
-    const mockMovies = [
+    let mockMovies = [
         {
             id: 1,
             title: "Jumanji: The Next Level",
@@ -15,7 +15,7 @@ describe('MoviesContainer', () => {
             },
     ];
 
-    const wrapper;
+    let wrapper;
 
     beforeEach(() => {
       wrapper = shallow(<MoviesContainer movies={mockMovies} />)
