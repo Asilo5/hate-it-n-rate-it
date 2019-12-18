@@ -15,7 +15,7 @@ class Login extends Component {
 
   handleSubmit = () => {
     const { email, password } = this.state;
-    fetchUser( email, password)
+    fetchUser( email, password) 
       .then(data => this.props.getUser(data))
   }
 
