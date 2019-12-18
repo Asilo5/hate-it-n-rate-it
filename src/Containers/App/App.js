@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
+import { addMoviesData } from '../../actions/index';
 // import Login from '../Login/Login';
 
 
@@ -13,7 +15,7 @@ class App extends Component {
   componentDidMount() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
       .then(response => response.json())
-      .then(data => console.log(data.movies))
+      .then(data => this.props.addMoviesData(data))
   }
 
   render() {
@@ -26,4 +28,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  addMoviesData: movies => dispatch( addMoviesData(movies))
+})
+
+export default connect(null, mapDispatchToProps)(App);
