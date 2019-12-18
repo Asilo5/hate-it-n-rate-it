@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Movie from '../Movie/Movie';
+import MoviesDisplay from '../MoviesDisplay/MoviesDisplay';
 
 const MoviesContainer = ({ movies }) => {
     let theMovie = movies.map((movie) => {
-        return <Movie key={movie.id} {...movie} /> 
+        return <MoviesDisplay key={movie.id} {...movie} /> 
     })
     return (
         <section>
