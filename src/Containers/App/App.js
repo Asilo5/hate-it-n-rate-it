@@ -32,13 +32,12 @@ class App extends Component {
         <NavBar />
         <Route exact path='/' component={MoviesContainer} /> 
         <Route exact path='/login' component={Login} />
-        <Route path='/movies:id' render={ ({ match }) => {
+        <Route path='/movies/:id' render={ ({ match }) => {
           const { id } = match.params;
           
-          return movies.map((movie) => {
-            const movieID = movies.find((otherMovie) => otherMovie.id === parseInt(id));
-            return movieID && <Movie key={movie.id} {...movie} />;
-          })
+          const foundFilm = movies.find((movie) => movie.id === parseInt(id));
+
+          return <Movie {...foundFilm}/>
  
         }} />
       </main>
