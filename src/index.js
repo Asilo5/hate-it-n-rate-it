@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from '../src/Containers/App/App';
-import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -21,4 +20,3 @@ const router = (
   
 ReactDOM.render(router, document.getElementById('root'));
 
-serviceWorker.unregister();
