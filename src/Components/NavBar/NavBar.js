@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './NavBar.scss'
 
-const NavBar = () => {
+const NavBar = ({ user}) => {
   return (
     <div className='NavBar'>
-      <NavLink className='button' to='/login'> Sign In </NavLink>
+      {!user.name ?
+      <NavLink className='nav_button' to='/login'> Sign In </NavLink> : 
+      <button className='nav_button' onClick={() => window.location.reload()}> Sign Out </button>
+      }
     </div>
   )
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(NavBar); 

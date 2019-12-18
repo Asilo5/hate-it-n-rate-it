@@ -10,12 +10,6 @@ import NavBar from '../../Components/NavBar/NavBar'
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: ''
-    }
-  }
 
   componentDidMount() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
