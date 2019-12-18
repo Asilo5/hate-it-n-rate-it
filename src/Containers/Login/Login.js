@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { getUser } from '../../actions';
 import { connect } from 'react-redux';
 
-class Login extends Component {
+export class Login extends Component {
   constructor() {
     super();
     this.state = {
