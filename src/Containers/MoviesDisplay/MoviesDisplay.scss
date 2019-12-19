@@ -1,11 +1,16 @@
 .movies-display {
     width: 30%;
     margin: 28px;
+    text-decoration: none;
+    text-align: center;
     img {
         width: 80%;
     }
     &:hover {
         transform: scale(1.03);
+    }
+    h3 {
+       
     }
 
 } 
