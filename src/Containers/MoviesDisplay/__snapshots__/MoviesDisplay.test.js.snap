@@ -1,19 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MoviesDisplay should match snapshot with all information passing in correctly 1`] = `
-<section
+<Link
   className="movies-display"
+  key="1"
+  to="/movies/1"
 >
-  <p>
-    Avg. rating: 
-    4
-  </p>
-  <p>
-    Jumanji: The Next Level
-  </p>
-  <img
-    alt="Jumanji: The Next Level"
-    src="https://image.tmdb.org/t/p/original//l4iknLOenijaB85Zyb5SxH1gGz8.jpg"
-  />
-</section>
+  <section>
+    <p>
+      Avg. rating: 
+      4
+    </p>
+    <p>
+      Jumanji: The Next Level
+    </p>
+    <img
+      alt="Jumanji: The Next Level"
+      src="https://image.tmdb.org/t/p/original//l4iknLOenijaB85Zyb5SxH1gGz8.jpg"
+    />
+  </section>
+</Link>
 `;

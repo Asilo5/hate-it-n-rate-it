@@ -1,5 +1,6 @@
 import React from 'react';
-import './Header.scss'
+import './Header.scss';
+import NavBar from '../NavBar/NavBar';
 import { connect } from 'react-redux';
 
 const Header = ({ user }) => {
@@ -8,6 +9,7 @@ const Header = ({ user }) => {
     <header className='header'>
       <h1><span>Hate</span> It 'N <span>Rate</span> It</h1>
       {!user.name ? null : <p>Welcome <span>{user.name}</span></p>}
+      <NavBar />
    </header>
   )
 }

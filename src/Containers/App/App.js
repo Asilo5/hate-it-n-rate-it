@@ -6,7 +6,6 @@ import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import { addMoviesData } from '../../actions/index';
 import Login from '../Login/Login';
 import Header from '../../Components/Header/Header';
-import NavBar from '../../Components/NavBar/NavBar';
 import Movie from '../Movie/Movie';
 
 
@@ -26,7 +25,6 @@ export class App extends Component {
     return (
       <main className="App">
         <Header />
-        <NavBar />
         <Route exact path='/' component={MoviesContainer} /> 
         <Route exact path='/login' component={Login} />
         <Route path='/movies/:id' render={ ({ match }) => {
