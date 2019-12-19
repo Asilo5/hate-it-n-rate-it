@@ -1,11 +1,21 @@
 .movie {
     width: 65%;
-    display: flex;
-    // align-items: center;
     margin: 10px auto;
     position: relative;
     top: 3em;
-    img {
-        width: 40%;
+    .back-ground {
+        width: 85%;
+    }
+    .main-img {
+        width: 25%;
+        float: left;
+        position: relative;
+        top: -11em;
+        left: 7em;
+    }
+    div {
+        width: 76%;
+        position: relative;
+        left: 9em;
     }
 }
