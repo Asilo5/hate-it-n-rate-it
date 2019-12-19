@@ -1,5 +1,5 @@
 .movie {
-    width: 65%;
+    width: 57%;
     margin: 10px auto;
     position: relative;
     top: 3em;
@@ -26,5 +26,8 @@
     .rating {
         display: flex;
         justify-content: space-evenly;
+    }
+    p {
+        font-size: 24px;
     }
 }
