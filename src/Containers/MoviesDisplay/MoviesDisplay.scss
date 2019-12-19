@@ -3,6 +3,7 @@
     margin: 28px;
     text-decoration: none;
     text-align: center;
+    color: black;
     img {
         width: 80%;
     }
@@ -10,8 +11,10 @@
         transform: scale(1.03);
     }
     h3 {
-       
+       font-size: 3em;
     }
-
+    p {
+       font-size: 25px;
+    }
 } 
 
