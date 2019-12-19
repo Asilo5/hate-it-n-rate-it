@@ -1,27 +1,30 @@
 .movie {
-    width: 57%;
-    margin: 10px auto;
-    position: relative;
-    top: 3em;
+    width: 85%;
+    margin: 10px;
+    display: flex;
+    height: 34em;
+    padding: 20px;
+    .movie-images {
+        width: 169%;
+    }
+    .movie-info {
+        margin: 10px;
+        width: 100%;
+    }
     .back-ground {
-        width: 85%;
+        width: 67%;
+        position: relative;
+        left: 18em;
     }
     .main-img {
         width: 25%;
-        float: left;
         position: relative;
-        top: -11em;
-        left: 7em;
+        top: 14em;
     }
     .title {
         font-weight: bold;
         font-size: 3em;
         margin: 0;
-    }
-    .overview-rating{
-        width: 76%;
-        position: relative;
-        left: 9em;
     }
     .rating {
         display: flex;
