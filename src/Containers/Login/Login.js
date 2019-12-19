@@ -3,11 +3,12 @@ import { fetchUser } from '../../utils/apiCalls';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../../actions';
 import { connect } from 'react-redux';
+import './Login.scss';
 
 export class Login extends Component {
   constructor() {
     super();
-    this.state = {
+    this.state = { 
       email: '',
       password: ''
     }
@@ -27,11 +28,13 @@ export class Login extends Component {
     return(
       <section>
         <form>
+          <label>Email:</label>
           <input 
             name='email' 
             value={this.state.email} 
             onChange={(e) => this.handleChange(e)}
           />
+          <label>Password:</label>
           <input 
             type='password'
             name='password' 
