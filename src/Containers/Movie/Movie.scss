@@ -1,3 +1,19 @@
+.back-button {
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    padding: 7px 15px;
+    text-decoration: none;
+    margin: auto;
+    display: block;
+    width: 12%;
+    &:hover {
+        transform: scale(1.05);
+        font-weight: bold;
+    }
+}
+
 .movie {
     width: 85%;
     margin: 10px;
