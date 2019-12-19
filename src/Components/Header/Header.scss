@@ -1,18 +1,9 @@
-// .header {
-//   align-items: center;
-//   background:url(https://image.tmdb.org/t/p/original//84Xz2Jh60tC3ICO1CY27wc0zwgC.jpg) top left/cover no-repeat;
-//   display: flex;
-//   height: 15vh;
-//   justify-content: space-between;
-//   padding: 15px 15px;
-//   span {
-//     color: purple;
-//   }
-//   h1 {
-//     font-size: 60px;
-//     margin: 0;
-//   }
-//   .NavBar {
-//     align-self: flex-end;
-//   }
-// }
+header {
+  padding: 15px;
+  h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 5em;
+    text-align: center;
+  }
+
+}
