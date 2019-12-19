@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie should match the snapshot 1`] = `
+<section
+  className="movie"
+>
+  <p />
+  <p />
+  <p />
+  <p />
+  <img />
+  <p />
+</section>
+`;
