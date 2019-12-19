@@ -4,10 +4,9 @@ import NavBar from '../NavBar/NavBar';
 import { connect } from 'react-redux';
 
 export const Header = ({ user }) => {
-  console.log(user)
   return (
     <header className='header'>
-      <h1><span>Hate</span> It 'N <span>Rate</span> It</h1>
+      <h1>Hate It 'N Rate It</h1>
       {!user.name ? null : <p>Welcome <span>{user.name}</span></p>}
       <NavBar />
    </header>
