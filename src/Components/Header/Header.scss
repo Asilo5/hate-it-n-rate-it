@@ -5,5 +5,8 @@ header {
     font-size: 5em;
     text-align: center;
   }
-
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
 }

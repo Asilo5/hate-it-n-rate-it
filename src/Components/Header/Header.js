@@ -7,8 +7,10 @@ export const Header = ({ user }) => {
   return (
     <header>
       <h1>Hate It 'N Rate It</h1>
-      {!user.name ? null : <p>Welcome <span>{user.name}</span></p>}
-      <NavBar />
+     <div>
+        {!user.name ? null : <p>Welcome <span>{user.name}</span></p>}
+        <NavBar />
+     </div>
    </header>
   )
 }
