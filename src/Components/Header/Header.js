@@ -3,7 +3,7 @@ import './Header.scss';
 import NavBar from '../NavBar/NavBar';
 import { connect } from 'react-redux';
 
-const Header = ({ user }) => {
+export const Header = ({ user }) => {
   console.log(user)
   return (
     <header className='header'>
@@ -14,7 +14,7 @@ const Header = ({ user }) => {
   )
 }
 
-const mapStateToProps = state => ({
+ export const mapStateToProps = state => ({
   user: state.user
 });
 
