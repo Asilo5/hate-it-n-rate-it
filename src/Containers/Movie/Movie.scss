@@ -1,6 +1,33 @@
 .movie {
-    width: 40%;
-    img {
-        width: 40%;
+    width: 57%;
+    margin: 10px auto;
+    position: relative;
+    top: 3em;
+    .back-ground {
+        width: 85%;
+    }
+    .main-img {
+        width: 25%;
+        float: left;
+        position: relative;
+        top: -11em;
+        left: 7em;
+    }
+    .title {
+        font-weight: bold;
+        font-size: 3em;
+        margin: 0;
+    }
+    .overview-rating{
+        width: 76%;
+        position: relative;
+        left: 9em;
+    }
+    .rating {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    p {
+        font-size: 24px;
     }
 }
