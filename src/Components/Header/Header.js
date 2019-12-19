@@ -8,7 +8,7 @@ export const Header = ({ user }) => {
     <header> 
       <h1>Hate It 'N Rate It</h1>
      <div>
-        {!user.name ? null : <p>Welcome <span>{user.name}</span></p>}
+        {!user.name ? null : <p>Welcome {user.name}!</p>}
         <NavBar />
      </div>
      <img src='http://www.thecareeravenue.com/Images/extras/spacer.png' alt='pattern decoration' />
