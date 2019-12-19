@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './NavBar.scss'
 
-const NavBar = ({ user}) => {
+export const NavBar = ({ user}) => {
   return (
     <div className='NavBar'>
       {!user.name ?
@@ -14,7 +14,7 @@ const NavBar = ({ user}) => {
   )
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user
 });
 

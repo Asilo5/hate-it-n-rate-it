@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.scss'
 import { connect } from 'react-redux';
 
-const Header = ({ user }) => {
+export const Header = ({ user }) => {
   console.log(user)
   return (
     <div className='header'>
@@ -13,7 +13,7 @@ const Header = ({ user }) => {
   )
 }
 
-const mapStateToProps = state => ({
+ export const mapStateToProps = state => ({
   user: state.user
 });
 
