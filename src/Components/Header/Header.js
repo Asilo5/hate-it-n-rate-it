@@ -11,6 +11,7 @@ export const Header = ({ user }) => {
         {!user.name ? null : <p>Welcome <span>{user.name}</span></p>}
         <NavBar />
      </div>
+     <img src='https://www.wallquotes.com/sites/default/files/hdbd0030-30.png' alt='pattern decoration' />
    </header>
   )
 }
