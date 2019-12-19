@@ -13,9 +13,18 @@
         top: -11em;
         left: 7em;
     }
-    div {
+    .title {
+        font-weight: bold;
+        font-size: 3em;
+        margin: 0;
+    }
+    .overview-rating{
         width: 76%;
         position: relative;
         left: 9em;
+    }
+    .rating {
+        display: flex;
+        justify-content: space-evenly;
     }
 }
