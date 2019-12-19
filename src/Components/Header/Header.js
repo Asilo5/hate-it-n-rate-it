@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 export const Header = ({ user }) => {
   return (
-    <header>
+    <header> 
       <h1>Hate It 'N Rate It</h1>
      <div>
         {!user.name ? null : <p>Welcome <span>{user.name}</span></p>}
