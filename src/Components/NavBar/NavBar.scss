@@ -1,16 +1,14 @@
 .NavBar {
-  
   .nav_button {
-    background-color: #5d5c5dab;
+    background-color: black;
     border-radius: 10px;
     color: white;
     font-size: 25px;
-    height: 30px;
     padding: 7px 15px;
     text-decoration: none;
-    width: 150px;
   }
-}
-.NavBar:hover {
-    transform: scale(1.05);
+  &:hover {
+      transform: scale(1.05);
+      font-weight: bold;
+  }
 }

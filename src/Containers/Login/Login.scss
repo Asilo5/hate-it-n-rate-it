@@ -1,0 +1,38 @@
+form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 30% auto;
+    width: 30%;
+    margin: auto;
+    position: relative;
+    top: 16em;
+    label {
+        font-size: 2em;
+        font-weight: bold;
+    }
+    input {
+        font-size: 25px;
+        border: none;
+        border-bottom: 2px solid black;
+        margin: 5px 0;
+        caret-color: red;
+    }
+    .login_button {
+        text-decoration: none;
+        padding: 8px;
+        margin: 12px auto;
+        border: 2px solid black;
+        width: 30%;
+        text-align: center;
+        font-size: 2em;
+        display: block;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
+}

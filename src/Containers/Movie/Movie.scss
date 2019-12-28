@@ -3,20 +3,28 @@
     margin: 10px auto;
     position: relative;
     top: 3em;
+    border: 1px solid black;
+    padding: 25px;
+    border-radius: 5px;
     .back-ground {
-        width: 85%;
+        width: 100%;
+        height: 23em;
     }
     .main-img {
         width: 25%;
         float: left;
         position: relative;
         top: -11em;
-        left: 7em;
+        left: 4em;
     }
     .title {
         font-weight: bold;
         font-size: 3em;
         margin: 0;
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
     }
     .overview-rating{
         width: 76%;
@@ -29,5 +37,7 @@
     }
     p {
         font-size: 24px;
+        margin: 5px;
+        text-align: center;
     }
 }

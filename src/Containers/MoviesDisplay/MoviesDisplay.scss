@@ -1,11 +1,20 @@
 .movies-display {
     width: 30%;
     margin: 28px;
+    text-decoration: none;
+    text-align: center;
+    color: black;
     img {
         width: 80%;
     }
-    img:hover {
+    &:hover {
         transform: scale(1.03);
     }
+    h3 {
+       font-size: 3em;
+    }
+    p {
+       font-size: 25px;
+    }
+} 
 
-}
