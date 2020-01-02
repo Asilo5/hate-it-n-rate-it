@@ -11,9 +11,9 @@ exports[`MoviesDisplay should match snapshot with all information passing in cor
       Avg. rating: 
       4
     </p>
-    <p>
+    <h3>
       Jumanji: The Next Level
-    </p>
+    </h3>
     <img
       alt="Jumanji: The Next Level"
       src="https://image.tmdb.org/t/p/original//l4iknLOenijaB85Zyb5SxH1gGz8.jpg"
