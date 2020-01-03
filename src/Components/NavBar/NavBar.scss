@@ -1,14 +1,23 @@
 .NavBar {
-  .nav_button {
+  .nav_button,
+  .home_button {
     background-color: black;
     border-radius: 10px;
     color: white;
+    cursor: pointer;
     font-size: 25px;
-    padding: 7px 15px;
+    padding: 10px 15px;
     text-decoration: none;
   }
-  &:hover {
-      transform: scale(1.05);
-      font-weight: bold;
+  .home_button {
+    padding: 10px 10px 0px;
+  }
+  .nav_button:hover {
+    transform: scale(1.05);
+    font-weight: bold;
+  }
+  .home_button:hover {
+    transform: scale(1.05);
+    font-weight: bold;
   }
 }
