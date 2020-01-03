@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchUser } from '../../utils/apiCalls';
 import { NavLink } from 'react-router-dom';
-import { getUser } from '../../actions';
+import { getUser, hasError } from '../../actions';
 import { connect } from 'react-redux';
 import './Login.scss';
 
@@ -53,12 +53,14 @@ export class Login extends Component {
   }
 }
 
-const  mapStateToProps = ({ user }) => ({
-  user 
+const  mapStateToProps = ({ user, error }) => ({
+  user,
+  error 
 })
 
 const mapDispatchToProps = dispatch => ({
-  getUser: user => dispatch( getUser(user))
+  getUser: user => dispatch( getUser(user)),
+  hasError: error => dispatch( hasError(error))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
