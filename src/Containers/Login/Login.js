@@ -18,6 +18,7 @@ export class Login extends Component {
     const { email, password } = this.state;
     fetchUser( email, password) 
       .then(data => this.props.getUser(data))
+      .catch(err => this.props.hasError('User not found'));
   }
 
   handleChange = (e) => {
@@ -25,8 +26,8 @@ export class Login extends Component {
   }
 
   render() {
-    const { user } = this.props;
-    console.log(user)
+    const { user, error } = this.props;
+    console.log(user===undefined);
     return(
       <section>
         <form>
@@ -35,20 +36,31 @@ export class Login extends Component {
             name='email' 
             value={this.state.email} 
             onChange={(e) => this.handleChange(e)}
-          />
+            />
           <label>Password:</label>
           <input 
             type='password'
             name='password' 
             value={this.state.password} 
             onChange={(e) => this.handleChange(e)}
-          />
-          <NavLink
-            className='login_button'
-            to='/'
-            type='button'
-            onClick={this.handleSubmit}
-          >LOGIN </NavLink>
+            />
+          <p className='error'>{error}</p>
+          { error ? 
+         <div className='login_button'>Login</div>  
+         :
+         <NavLink
+           className='login_button'
+           to='/'
+           type='button'
+           onClick={this.handleSubmit}
+         >LOGIN </NavLink>
+        }
+          {/* // <NavLink
+          //   className='login_button'
+          //   to='/'
+          //   type='button'
+          //   onClick={this.handleSubmit}
+          // >LOGIN </NavLink> */}
         </form>
       </section>
     )
