@@ -16,7 +16,7 @@ export const NavBar = ({ user, setUser }) => {
     <div className='NavBar'> 
       {!user.name ?
         <NavLink className='nav_button' to='/login'> Sign In </NavLink> 
-      : <NavLink className='nav_button' onClick={() => logOut()} to='/'> Log Out </NavLink>
+      : <NavLink className='nav_button' onClick={logOut} to='/'> Log Out </NavLink>
       }
       <NavLink className='home_button' to='/'> Home </NavLink>
     </div>
