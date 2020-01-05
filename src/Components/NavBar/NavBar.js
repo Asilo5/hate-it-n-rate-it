@@ -1,14 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setUser } from '../../actions/index';
 import './NavBar.scss'
 
-export const NavBar = ({ user }) => {
+export const NavBar = ({ user, setUser }) => {
+
+  const logOut = () => {
+    setUser({
+      user: {}
+    })
+  }
+
   return (
     <div className='NavBar'> 
       {!user.name ?
-      <NavLink className='nav_button' to='/login'> Sign In </NavLink> : 
-      <button className='nav_button' onClick={() => window.location.reload()}> Sign Out </button>
+        <NavLink className='nav_button' to='/login'> Sign In </NavLink> 
+      : <NavLink className='nav_button' onClick={() => logOut()} to='/'> Log Out </NavLink>
       }
       <NavLink className='home_button' to='/'> Home </NavLink>
     </div>
@@ -19,4 +27,8 @@ export const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(NavBar); 
+export const mapDispatchToProps = dispatch => ({
+  setUser: user => dispatch(setUser(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar); 
