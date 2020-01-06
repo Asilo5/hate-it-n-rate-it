@@ -16,15 +16,15 @@ describe('actions', () => {
     })
   })
 
-  describe('getUser', () => {
-    it('should return an object containing type: "GET_USER" and the user', () => {
+  describe('setUser', () => {
+    it('should return an object containing type: "SET_USER" and the user', () => {
       // setup
       const expected = {
-        type: 'GET_USER',
+        type: 'SET_USER',
         user: mockData.mockUser
       };
       // execution
-      const result = actions.getUser(mockData.mockUser);
+      const result = actions.setUser(mockData.mockUser);
       // expectation
       expect(result).toEqual(expected);
     })
