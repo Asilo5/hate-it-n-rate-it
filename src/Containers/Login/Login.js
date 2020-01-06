@@ -28,15 +28,23 @@ export class Login extends Component {
       })
       .catch(err => {
         this.setState({ userFound: false });
-        this.props.hasError('User not found');
+        this.props.hasError('Email or password are incorrect, please try again!');
       });
+
+    this.clearInputs();
   }
 
+  clearInputs = () => {
+    this.setState({
+      email: '',
+      password: ''
+    })
+  }
 
   render() {
     const { user, error } = this.props;
     const { userFound } = this.state;
-    console.log(userFound);
+    console.log(user.name);
     return(
       <section>
         <form>
@@ -54,13 +62,16 @@ export class Login extends Component {
             onChange={(e) => this.handleChange(e)}
             />
           <p className='error'>{error}</p>
-          { userFound ?  
-         <NavLink
-           className='login_button'
-           to='/'
-           type='button'
-           onClick={this.handleSubmit}
-         >LOGIN</NavLink>
+          { userFound ?
+          <div>
+              <p className='welcome-msg'>You're now logged in, {user.name}!</p>  
+              <NavLink
+                className='login_button'
+                to='/'
+                type='button'
+                onClick={this.handleSubmit}
+              >LOGIN</NavLink>
+          </div>
          :
          <NavLink
          className='login_button'
