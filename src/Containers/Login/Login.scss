@@ -35,4 +35,14 @@ form {
             color: white;
         }
     }
+    .error {
+        color: red;
+        font-size: 23px;
+        text-align: center;
+    }
+
+    .welcome-msg {
+        @extend .error;
+        color: green;
+    }
 }

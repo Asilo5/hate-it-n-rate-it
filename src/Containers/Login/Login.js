@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchUser, fetchRatings } from '../../utils/apiCalls';
 import { NavLink } from 'react-router-dom';
-import { setUser, setUserRatings } from '../../actions';
+import { setUser, hasError, setUserRatings } from '../../actions';
 import { connect } from 'react-redux';
 import './Login.scss';
 
@@ -10,19 +10,35 @@ export class Login extends Component {
     super();
     this.state = { 
       email: '',
-      password: ''
+      password: '',
+      userFound: false
     }
-  }
-
-  handleSubmit = () => {
-    const { email, password } = this.state;
-    fetchUser( email, password ) 
-      .then(data => this.props.setUser(data));
-    this.handleUserRatings();
   }
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleSubmit = () => {
+    const { email, password } = this.state;
+    fetchUser( email, password) 
+      .then(data => {
+        this.props.setUser(data);
+        this.setState({ userFound: true })
+      })
+      .catch(err => {
+        this.setState({ userFound: false });
+        this.props.hasError('Email or password are incorrect, please try again!');
+      });
+    this.handleUserRatings();
+    this.clearInputs();
+  }
+
+  clearInputs = () => {
+    this.setState({
+      email: '',
+      password: ''
+    })
   }
 
   handleUserRatings = () => {
@@ -31,6 +47,8 @@ export class Login extends Component {
   }
 
   render() {
+    const { user, error } = this.props;
+    const { userFound } = this.state;
     return(
       <section>
         <form>
@@ -39,33 +57,48 @@ export class Login extends Component {
             name='email' 
             value={this.state.email} 
             onChange={(e) => this.handleChange(e)}
-          />
+            />
           <label>Password:</label>
           <input 
             type='password'
             name='password' 
             value={this.state.password} 
             onChange={(e) => this.handleChange(e)}
-          />
-          <NavLink
-            className='login_button'
-            to='/'
-            type='button'
-            onClick={this.handleSubmit}
-          >LOGIN </NavLink>
+            />
+          <p className='error'>{error}</p>
+          { userFound ?
+          <div>
+              <p className='welcome-msg'>You're now logged in, {user.name}!</p>  
+              <NavLink
+                className='login_button'
+                to='/'
+                type='button'
+                onClick={this.handleSubmit}
+              >LOGIN</NavLink>
+          </div>
+         :
+         <NavLink
+         className='login_button'
+         to='/login'
+         type='button'
+         onClick={this.handleSubmit}
+       >LOGIN </NavLink>
+        }
         </form>
       </section>
     )
   }
 }
 
+const  mapStateToProps = ({ user, error }) => ({
+  user,
+  error 
+})
+
 export const mapDispatchToProps = dispatch => ({
-  setUser: user => dispatch(setUser(user)),
+  setUser: user => dispatch( setUser(user)),
+  hasError: error => dispatch( hasError(error)),
   setUserRatings: ratedMovies => dispatch(setUserRatings(ratedMovies))
 })
 
-// export const mapStatetoProps = state => ({
-//   ratedMovies: state.ratedMovies
-// })
-
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

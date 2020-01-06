@@ -13,3 +13,8 @@ export const setUserRatings = ratedMovies => ({
   ratedMovies
 })
 
+export const hasError = (error) => ({
+  type: 'HAS_ERROR',
+  error
+})
+
