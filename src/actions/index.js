@@ -8,3 +8,8 @@ export const setUser = user => ({
   user
 })
 
+export const hasError = (error) => ({
+  type: 'HAS_ERROR',
+  error
+})
+
