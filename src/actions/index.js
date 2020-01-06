@@ -8,3 +8,8 @@ export const setUser = user => ({
   user
 })
 
+export const setUserRatings = ratedMovies => ({
+  type: 'SET_USER_RATINGS',
+  ratedMovies
+})
+
