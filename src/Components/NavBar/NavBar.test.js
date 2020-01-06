@@ -19,6 +19,14 @@ describe('NavBar', () => {
     });
   });
 
+  // describe('logOut', () => {
+  //   it('should invoke setUser when called', () => {
+  //     wrapper.find('NavLink').at(0).simulate('click');
+
+  //     expect(setUser).toHaveBeenCalled();
+  //   })
+  // })
+
   describe('mapDispatchToProps', () => {
    it('calls dispatch with a setUser action', () => {
     mockUser = {
