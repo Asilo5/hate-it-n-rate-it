@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { fetchUser } from '../../utils/apiCalls';
+import { fetchUser, fetchRatings } from '../../utils/apiCalls';
 import { NavLink } from 'react-router-dom';
-import { setUser } from '../../actions';
+import { setUser, setUserRatings } from '../../actions';
 import { connect } from 'react-redux';
 import './Login.scss';
 
@@ -17,11 +17,17 @@ export class Login extends Component {
   handleSubmit = () => {
     const { email, password } = this.state;
     fetchUser( email, password ) 
-      .then(data => this.props.setUser(data))
+      .then(data => this.props.setUser(data));
+    this.handleUserRatings();
   }
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleUserRatings = () => {
+    fetchRatings()
+      .then(data => this.props.setUserRatings(data))
   }
 
   render() {
@@ -54,7 +60,12 @@ export class Login extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  setUser: user => dispatch(setUser(user))
+  setUser: user => dispatch(setUser(user)),
+  setUserRatings: ratedMovies => dispatch(setUserRatings(ratedMovies))
 })
+
+// export const mapStatetoProps = state => ({
+//   ratedMovies: state.ratedMovies
+// })
 
 export default connect(null, mapDispatchToProps)(Login);
