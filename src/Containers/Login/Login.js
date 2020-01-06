@@ -67,7 +67,7 @@ export class Login extends Component {
             />
           <p className='error'>{error}</p>
           { userFound ?
-          <div>
+            <div>
               <p className='welcome-msg'>You're now logged in, {user.name}!</p>  
               <NavLink
                 className='login_button'
@@ -75,15 +75,15 @@ export class Login extends Component {
                 type='button'
                 onClick={this.handleSubmit}
               >LOGIN</NavLink>
-          </div>
-         :
-         <NavLink
-         className='login_button'
-         to='/login'
-         type='button'
-         onClick={this.handleSubmit}
-       >LOGIN </NavLink>
-        }
+            </div>
+          :
+            <NavLink
+            className='login_button'
+            to='/login'
+            type='button'
+            onClick={this.handleSubmit}
+            >LOGIN </NavLink>
+          }
         </form>
       </section>
     )
