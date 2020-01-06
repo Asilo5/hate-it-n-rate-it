@@ -44,7 +44,6 @@ export class Login extends Component {
   render() {
     const { user, error } = this.props;
     const { userFound } = this.state;
-    console.log(user.name);
     return(
       <section>
         <form>
