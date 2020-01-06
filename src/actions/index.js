@@ -8,6 +8,11 @@ export const setUser = user => ({
   user
 })
 
+export const setUserRatings = ratedMovies => ({
+  type: 'SET_USER_RATINGS',
+  ratedMovies
+})
+
 export const hasError = (error) => ({
   type: 'HAS_ERROR',
   error

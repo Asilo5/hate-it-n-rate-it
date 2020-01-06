@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { fetchUser } from '../../utils/apiCalls';
+import { fetchUser, fetchRatings } from '../../utils/apiCalls';
 import { NavLink } from 'react-router-dom';
-import { setUser, hasError } from '../../actions';
+import { setUser, hasError, setUserRatings } from '../../actions';
 import { connect } from 'react-redux';
 import './Login.scss';
 
@@ -30,7 +30,7 @@ export class Login extends Component {
         this.setState({ userFound: false });
         this.props.hasError('Email or password are incorrect, please try again!');
       });
-
+    this.handleUserRatings();
     this.clearInputs();
   }
 
@@ -39,6 +39,11 @@ export class Login extends Component {
       email: '',
       password: ''
     })
+  }
+
+  handleUserRatings = () => {
+    fetchRatings()
+      .then(data => this.props.setUserRatings(data))
   }
 
   render() {
@@ -92,7 +97,8 @@ const  mapStateToProps = ({ user, error }) => ({
 
 export const mapDispatchToProps = dispatch => ({
   setUser: user => dispatch( setUser(user)),
-  hasError: error => dispatch( hasError(error))
+  hasError: error => dispatch( hasError(error)),
+  setUserRatings: ratedMovies => dispatch(setUserRatings(ratedMovies))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
