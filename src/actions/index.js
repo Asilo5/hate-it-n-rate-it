@@ -3,8 +3,8 @@ export const addMoviesData = movies => ({
   movies
 })
 
-export const getUser = user => ({
-  type: 'GET_USER',
+export const setUser = user => ({
+  type: 'SET_USER',
   user
 })
 

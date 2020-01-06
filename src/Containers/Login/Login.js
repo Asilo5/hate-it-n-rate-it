@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchUser } from '../../utils/apiCalls';
 import { NavLink } from 'react-router-dom';
-import { getUser, hasError } from '../../actions';
+import { setUser, hasError } from '../../actions';
 import { connect } from 'react-redux';
 import './Login.scss';
 
@@ -23,7 +23,7 @@ export class Login extends Component {
     const { email, password } = this.state;
     fetchUser( email, password) 
       .then(data => {
-        this.props.getUser(data);
+        this.props.setUser(data);
         this.setState({ userFound: true })
       })
       .catch(err => {
@@ -90,8 +90,8 @@ const  mapStateToProps = ({ user, error }) => ({
   error 
 })
 
-const mapDispatchToProps = dispatch => ({
-  getUser: user => dispatch( getUser(user)),
+export const mapDispatchToProps = dispatch => ({
+  setUser: user => dispatch( setUser(user)),
   hasError: error => dispatch( hasError(error))
 })
 
