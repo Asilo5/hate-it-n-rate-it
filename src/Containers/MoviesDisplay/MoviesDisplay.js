@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-export const MoviesDisplay = ({ average_rating, id, poster_path, title, userRatings, user}) => {
+export const MoviesDisplay = ({ average_rating, id, poster_path, title, userRatings}) => {
     
     const findRatedMovie = () => {
         if (userRatings.length !== 0) {
