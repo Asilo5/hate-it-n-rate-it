@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login should match the snapshot 1`] = `
+exports[`Login Component Login should match the snapshot 1`] = `
 <section>
   <form>
     <label>
@@ -22,7 +22,9 @@ exports[`Login should match the snapshot 1`] = `
     />
     <p
       className="error"
-    />
+    >
+      No user found
+    </p>
     <div>
       <button
         className="login_button"

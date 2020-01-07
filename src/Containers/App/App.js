@@ -10,9 +10,6 @@ import Movie from '../Movie/Movie';
 
 
 export class App extends Component {
-  constructor() {
-    super();
-  }
 
   componentDidMount() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
