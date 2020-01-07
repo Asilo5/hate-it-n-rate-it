@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchUser, fetchRatings } from '../../utils/apiCalls';
-import { NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { setUser, hasError, setUserRatings } from '../../actions';
 import { connect } from 'react-redux';
 import './Login.scss';
@@ -25,24 +25,24 @@ export class Login extends Component {
       .then(data => {
         this.props.setUser(data);
         this.handleUserRatings(data.user.id);
-        this.setState({ userFound: true })
+        this.setState({ 
+          userFound: true, 
+          email: '',
+          password: '' 
+        });
+        this.props.hasError('');
       })
       .catch(() => {
-        this.setState({ userFound: false });
+        this.setState({ 
+          userFound: false,
+          email: '',
+          password: '' 
+        });
         this.props.hasError('Email or password are incorrect, please try again!');
       });
-      this.clearInputs();
-    }
-    
-    clearInputs = () => {
-      this.setState({
-        email: '',
-        password: ''
-      })
     }
     
     handleUserRatings = (userId) => {
-    console.log(userId);
     fetchRatings(userId)
       .then(data => this.props.setUserRatings(data))
   }
@@ -50,7 +50,12 @@ export class Login extends Component {
   render() {
     const { user, error } = this.props;
     const { userFound } = this.state;
-    return(
+
+    if (userFound) {
+      return <Redirect to='/' />
+    }
+
+    return (
       <section>
         <form>
           <label>Email:</label>
@@ -67,24 +72,13 @@ export class Login extends Component {
             onChange={(e) => this.handleChange(e)}
             />
           <p className='error'>{error}</p>
-          { userFound ?
             <div>
-              <p className='welcome-msg'>You're now logged in, {user.name}!</p>  
-              <NavLink
+              <button
                 className='login_button'
-                to='/'
                 type='button'
                 onClick={this.handleSubmit}
-              >LOGIN</NavLink>
+              >LOGIN</button>
             </div>
-          :
-            <NavLink
-            className='login_button'
-            to='/login'
-            type='button'
-            onClick={this.handleSubmit}
-            >LOGIN </NavLink>
-          }
         </form>
       </section>
     )
@@ -97,8 +91,8 @@ const  mapStateToProps = ({ user, error }) => ({
 })
 
 export const mapDispatchToProps = dispatch => ({
-  setUser: user => dispatch( setUser(user)),
-  hasError: error => dispatch( hasError(error)),
+  setUser: user => dispatch(setUser(user)),
+  hasError: error => dispatch(hasError(error)),
   setUserRatings: ratedMovies => dispatch(setUserRatings(ratedMovies))
 })
 
