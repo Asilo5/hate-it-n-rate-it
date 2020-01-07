@@ -19,13 +19,13 @@ export const fetchUser = async (email, password) => {
   return user;
 }
 
-export const fetchRatings = async () => {
-  const response = await fetch('https://rancid-tomatillos.herokuapp.com/api/v1/users/5/ratings');
+export const fetchRatings = async (userId) => {
+  const response = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${userId}/ratings`);
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message);
-  };
+  // if (!response.ok) {
+  //   const error = await response.json();
+  //   throw new Error(error.message);
+  // };
 
   const movieRatings = await response.json();
 
