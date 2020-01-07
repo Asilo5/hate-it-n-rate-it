@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { addRatings } from '../../utils/apiCalls';
+import { addRatings, getMovies, fetchRatings } from '../../utils/apiCalls';
+import { addMoviesData, setUserRatings } from '../../actions';
 import './Movie.scss';
 import { connect } from 'react-redux';
 
@@ -16,10 +17,12 @@ export class Movie extends Component {
         this.setState({rating: parseInt(value)})
     }
 
-    handleSubmit = () => {
-        console.log(this.props.id);
-        addRatings(this.props.id, this.state.rating)
-            .then(data => console.log(data))
+    handleSubmit = async () => {
+        addRatings(this.props.id, this.state.rating);
+        const movies = await getMovies();
+        this.props.addMoviesData(movies);
+        fetchRatings()
+            .then(data => this.props.setUserRatings(data))
     }
     
     findRatedMovie = () => {
@@ -74,11 +77,16 @@ export class Movie extends Component {
     }
 } 
 
+const mapDispatchToProps = dispatch => ({
+    addMoviesData: movies => dispatch(addMoviesData(movies)),
+    setUserRatings: ratedMovies => dispatch(setUserRatings(ratedMovies))
+  })
+
 export const mapStateToProps = (state) => ({
     movies: state.movies,
     userRatings: state.userRatings,
     user: state.user
 })
 
-export default connect(mapStateToProps)(Movie);
+export default connect(mapStateToProps, mapDispatchToProps)(Movie);
 
