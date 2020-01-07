@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { addRatings, getMovies, fetchRatings } from '../../utils/apiCalls';
 import { addMoviesData, setUserRatings } from '../../actions';
 import './Movie.scss';
@@ -89,6 +90,17 @@ export const mapStateToProps = (state) => ({
     userRatings: state.userRatings,
     user: state.user
 })
+
+Movie.propTypes = {
+    average_rating: PropTypes.number, 
+    backdrop_path: PropTypes.string, 
+    overview: PropTypes.string, 
+    poster_path: PropTypes.string, 
+    release_date: PropTypes.string, 
+    title: PropTypes.string,
+    user: PropTypes.object,
+    userRatings: PropTypes.array
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Movie);
 
