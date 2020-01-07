@@ -1,7 +1,7 @@
 export const fetchUser = async (email, password) => {
   const userInfo = {email, password};
 
-  const options = {
+  const options = { 
     method: 'POST',
     body: JSON.stringify(userInfo),
     headers: {'Content-Type': 'application/json'}

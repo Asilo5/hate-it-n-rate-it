@@ -8,14 +8,16 @@ import { addMoviesData } from '../../actions/index';
 import Login from '../Login/Login';
 import Header from '../../Components/Header/Header';
 import Movie from '../Movie/Movie';
+import { getMovies } from '../../utils/apiCalls';
+import { bindActionCreators } from 'redux';
 
 
 export class App extends Component {
 
   componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
-      .then(response => response.json())
+    getMovies()
       .then(data => this.props.addMoviesData(data))
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -38,11 +40,13 @@ export class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => (
+  bindActionCreators({
   addMoviesData: movies => dispatch( addMoviesData(movies))
-})
+  }, dispatch)
+)
 
-const mapStateToProps = ({ movies }) => ({
+export const mapStateToProps = ({ movies }) => ({
    movies
 })
 
