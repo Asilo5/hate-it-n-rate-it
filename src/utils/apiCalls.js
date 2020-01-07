@@ -45,7 +45,6 @@ export const addRatings = async (id, rating) => {
   };
 
   const response = await fetch('https://rancid-tomatillos.herokuapp.com/api/v1/users/5/ratings', options);
-  console.log(response);
 
   // if (!response.ok) {
   //   const error = await response.json();
@@ -54,4 +53,17 @@ export const addRatings = async (id, rating) => {
 
   const newMovieRatings = await response.json();
   return newMovieRatings;
+}
+
+export const getMovies = async () => {
+  const response = await fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies');
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message);
+  };
+
+  const movies = await response.json();
+  console.log(movies);
+  return movies;
 }
