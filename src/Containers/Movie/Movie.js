@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addRatings } from '../../utils/apiCalls';
 import './Movie.scss';
 import { connect } from 'react-redux';
 
@@ -11,10 +12,19 @@ export class Movie extends Component {
         }
     }
 
+    handleChange = (value) => {
+        this.setState({rating: parseInt(value)})
+    }
+
+    handleSubmit = () => {
+        console.log(this.props.id);
+        addRatings(this.props.id, this.state.rating)
+            .then(data => console.log(data))
+    }
     
     findRatedMovie = () => {
         if (this.props.userRatings.length !== 0) {
-            return this.props.userRatings.find(movie => movie.movie_id === this.props.id)
+            return this.props.userRatings.find(movie => movie.movie_id === parseInt(this.props.id))
         }
     }
     
@@ -32,7 +42,7 @@ export class Movie extends Component {
                     <div className='rating'>
                         <p> Add your rating </p>
                         <form>
-                            <select>
+                            <select onChange={(e) => this.handleChange(e.target.value)}>
                                 <option value={1} >1</option>
                                 <option value={2} >2</option>
                                 <option value={3} >3</option>
@@ -44,7 +54,11 @@ export class Movie extends Component {
                                 <option value={9} >9</option>
                                 <option value={10} >10</option>
                             </select>
-                            <button>SUBMIT</button>
+                            <button 
+                                type='button'
+                                onClick={this.handleSubmit}
+                                >SUBMIT
+                            </button>
                         </form>
                     </div>
                 }
@@ -59,9 +73,6 @@ export class Movie extends Component {
         )
     }
 } 
-
-// ({ average_rating, id, backdrop_path, overview, poster_path, release_date, title, userRatings}) => {
-// }
 
 export const mapStateToProps = (state) => ({
     movies: state.movies,
