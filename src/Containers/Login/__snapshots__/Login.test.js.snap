@@ -23,14 +23,15 @@ exports[`Login should match the snapshot 1`] = `
     <p
       className="error"
     />
-    <NavLink
-      className="login_button"
-      onClick={[Function]}
-      to="/login"
-      type="button"
-    >
-      LOGIN 
-    </NavLink>
+    <div>
+      <button
+        className="login_button"
+        onClick={[Function]}
+        type="button"
+      >
+        LOGIN
+      </button>
+    </div>
   </form>
 </section>
 `;
