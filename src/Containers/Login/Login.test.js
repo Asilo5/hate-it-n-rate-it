@@ -6,7 +6,6 @@ import { fetchUser, fetchRatings } from '../../utils/apiCalls';
 
 jest.mock('../../utils/apiCalls');
 
-
 describe('Login', () => {
    
   let wrapper;
@@ -19,7 +18,8 @@ describe('Login', () => {
   let mockError = 'No user found';
   let mockSetUser = {
     name: 'Bob',
-    email: 'bob@gmail.com'
+    email: 'bob@gmail.com',
+    id: 1
   };
   let mockHasError = mockError;
   let mockSetUserRatings = [1, 2, 2];
@@ -32,7 +32,7 @@ describe('Login', () => {
                                 setUserRatings={mockSetUserRatings}/>);
       
       fetchUser.mockImplementation(() => {
-        return Promise.resolve(mockUser);
+        return Promise.resolve('bob@gmail.com', 34567);
       });
       
       fetchRatings.mockImplementation(() => {
@@ -71,14 +71,34 @@ describe('Login', () => {
     expect(wrapper.instance().handleChange).toHaveBeenCalled();
   })
 
-  it('should call fetchUser, handleUserRating, and clearInputs when handleSubmit is called', () => {
+  it('should call fetchUser when handleSubmit is called', () => {
     wrapper.instance().handleSubmit();
-    // let mockHandleUserRatings = jest.fn();
-    // let mockClearInputs = jest.fn();
-    // expect(mockHandleUserRatings).toHaveBeenCalled();
-    // expect(mockClearInputs).toHaveBeenCalled();
     expect(fetchUser).toHaveBeenCalled();
   })
 
-  it('')
+  it('should call fetchUser when handleSubmit is called', async () => { 
+    await wrapper.instance().handleSubmit();
+    expect(fetchUser).toHaveBeenCalled();
+  })
+
+  it('should update userFound state when handleSubmit is called', async () => {
+  
+    expect(wrapper.state('userFound')).toEqual(false);
+
+    let bob = await wrapper.instance().handleSubmit();
+    console.log(wrapper.state('userFound'))
+
+    expect(wrapper.state('userFound')).toEqual(true);
+  })
+
+  it.skip('should update password state when handleSubmit is called', async () => {
+    expect(wrapper.state('password')).toEqual('');
+
+    await wrapper.instance().handleSubmit();
+    fetchUser(mockUser);
+
+    expect(wrapper.state('password')).toEqual('34567');
+  })
+
+
 })
