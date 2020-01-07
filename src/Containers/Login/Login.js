@@ -30,7 +30,6 @@ export class Login extends Component {
           email: '',
           password: '' 
         });
-        this.props.hasError('');
       })
       .catch(() => {
         this.setState({ 

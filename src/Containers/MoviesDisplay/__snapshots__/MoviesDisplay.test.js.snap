@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MoviesDisplay should match snapshot with all information passing in correctly 1`] = `undefined`;
+exports[`MoviesDisplay should match snapshot with all information passing in correctly 1`] = `
+<Link
+  className="movies-display"
+  key="1"
+  to="/movies/1"
+>
+  <section>
+    <h3>
+      Jumanji: The Next Level
+    </h3>
+    <img
+      alt="Jumanji: The Next Level"
+      src="https://image.tmdb.org/t/p/original//l4iknLOenijaB85Zyb5SxH1gGz8.jpg"
+    />
+    <hr />
+    <p />
+    <p>
+      Avg. rating: 
+      4.00
+    </p>
+    <hr />
+  </section>
+</Link>
+`;

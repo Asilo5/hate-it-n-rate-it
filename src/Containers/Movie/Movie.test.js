@@ -4,7 +4,9 @@ import { shallow } from 'enzyme';
 
 describe('Movie', () => {
   it('should match the snapshot', () => {
-    const wrapper = shallow(<Movie />);
+    const mockAverage = 4;
+    const mockRatings = [];
+    const wrapper = shallow(<Movie userRatings={mockRatings} average_rating={mockAverage} />);
     expect(wrapper).toMatchSnapshot();
   })
 })

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MoviesDisplay from './MoviesDisplay';
+import { MoviesDisplay } from './MoviesDisplay';
 
 describe('MoviesDisplay', () => {
             let mockTitle = "Jumanji: The Next Level";
@@ -8,6 +8,7 @@ describe('MoviesDisplay', () => {
             let backdropPath = "https://image.tmdb.org/t/p/original//zTxHf9iIOCqRbxvl8W5QYKrsMLq.jpg"
             let releaseDate = "2019-12-04"
             let mockOverview = "In Jumanji: The Next Level, the gang is back but the game has changed."
+            let mockUserRating = [];
 
 
     let wrapper;
@@ -20,6 +21,7 @@ describe('MoviesDisplay', () => {
                         release_date={releaseDate}
                         overview={mockOverview}
                         average_rating={4}
+                        userRatings={mockUserRating}
                         />)
     })
 
