@@ -30,3 +30,18 @@ export const mockMovies = [
 
 export const mockUser = {user: {id: 1, name: "Alan", email: "alan@turing.io"}};
 
+export const mockRatedMovies = {
+    ratings: [
+        {
+            id: 459,
+            user_id: 5,
+            movie_id: 7,
+            rating: 4,
+            created_at: "2020-01-06T23:54:39.125Z",
+            updated_at: "2020-01-06T23:54:39.125Z"
+        }
+    ]
+};
+
+export const mockError = 'Fake error';
+
