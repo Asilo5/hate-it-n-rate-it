@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MoviesDisplay.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -35,5 +36,16 @@ export const mapStateToProps = (state) => ({
     userRatings: state.userRatings,
     user: state.user
 })
+
+MoviesDisplay.propTypes = {
+    movies: PropTypes.array,
+    userRatings: PropTypes.array,
+    user: PropTypes.object,
+    average_rating: PropTypes.number, 
+    id: PropTypes.number, 
+    poster_path: PropTypes.string, 
+    title: PropTypes.string, 
+    userRatings: PropTypes.array
+}
 
 export default connect(mapStateToProps)(MoviesDisplay);
