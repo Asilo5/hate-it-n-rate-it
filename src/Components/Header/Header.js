@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Header.scss';
 import NavBar from '../NavBar/NavBar';
 import { connect } from 'react-redux';
@@ -21,5 +22,9 @@ export const Header = ({ user }) => {
  export const mapStateToProps = state => ({
   user: state.user
 });
+
+Header.propTypes = {
+  user: PropTypes.object
+}
 
 export default connect(mapStateToProps)(Header);  

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './App.scss';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -45,5 +46,8 @@ const mapStateToProps = ({ movies }) => ({
    movies
 })
 
+App.propTypes = {
+  movies: PropTypes.array
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

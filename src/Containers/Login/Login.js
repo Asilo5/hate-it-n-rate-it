@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { fetchUser, fetchRatings } from '../../utils/apiCalls';
 import { Redirect } from 'react-router-dom';
 import { setUser, hasError, setUserRatings } from '../../actions';
@@ -97,5 +98,11 @@ export const mapDispatchToProps = (dispatch) => (
   setUserRatings: ratedMovies => dispatch(setUserRatings(ratedMovies))
   }, dispatch)
 )
+
+Login.propTypes = {
+  user: PropTypes.object,
+  error: PropTypes.string,
+  ratedMovies: PropTypes.array
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/index';
@@ -30,5 +31,10 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   setUser: user => dispatch(setUser(user))
 });
+
+NavBar.propTypes = {
+  user: PropTypes.object,
+  setUser: PropTypes.func
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar); 
