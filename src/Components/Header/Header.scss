@@ -6,8 +6,9 @@ header {
     text-align: center;
   }
   div {
+    align-items: flex-end;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
   img {
     margin: -49px auto;
