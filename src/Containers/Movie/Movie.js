@@ -37,13 +37,15 @@ export class Movie extends Component {
         return ( 
             <section className='movie'>
                 <h2 className='title' >{title}</h2>
-                <h3>Out on: {release_date}</h3>
-                <p>Avg. rating: {average_rating.toFixed(2)}</p>
+                <hr />
+                <h3>OUT ON: {release_date}</h3>
+                <p>AVG. RATING: {average_rating.toFixed(2)}</p>
+                <hr />
                 {this.findRatedMovie() ? 
-                    <p>Your rating: {this.findRatedMovie().rating}</p>
+                    <p>YOUR RATING: {this.findRatedMovie().rating}</p>
                 :
                     <div className='rating'>
-                        <p> Add your rating </p>
+                        <p>Add your rating</p>
                         <form>
                             <select onChange={(e) => this.handleChange(e.target.value)}>
                                 <option value={1} >1</option>
