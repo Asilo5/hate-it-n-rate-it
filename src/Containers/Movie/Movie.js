@@ -18,10 +18,10 @@ export class Movie extends Component {
     }
 
     handleSubmit = async () => {
-        addRatings(this.props.id, this.state.rating);
+        addRatings(this.props.id, this.state.rating, this.props.user.id);
         const movies = await getMovies();
         this.props.addMoviesData(movies);
-        fetchRatings()
+        fetchRatings(this.props.user.id)
             .then(data => this.props.setUserRatings(data))
     }
     
