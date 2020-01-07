@@ -3,6 +3,7 @@ import { fetchUser, fetchRatings } from '../../utils/apiCalls';
 import { Redirect } from 'react-router-dom';
 import { setUser, hasError, setUserRatings } from '../../actions';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './Login.scss';
 
 export class Login extends Component {
@@ -84,15 +85,17 @@ export class Login extends Component {
   }
 }
 
-const  mapStateToProps = ({ user, error }) => ({
+export const  mapStateToProps = ({ user, error }) => ({
   user,
   error 
 })
 
-export const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({
   setUser: user => dispatch(setUser(user)),
   hasError: error => dispatch(hasError(error)),
   setUserRatings: ratedMovies => dispatch(setUserRatings(ratedMovies))
-})
+  }, dispatch)
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
