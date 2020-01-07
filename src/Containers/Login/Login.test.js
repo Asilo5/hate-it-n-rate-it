@@ -70,4 +70,15 @@ describe('Login', () => {
     wrapper.find('input').at(1).simulate('change', mockEvent);
     expect(wrapper.instance().handleChange).toHaveBeenCalled();
   })
+
+  it('should call fetchUser, handleUserRating, and clearInputs when handleSubmit is called', () => {
+    wrapper.instance().handleSubmit();
+    // let mockHandleUserRatings = jest.fn();
+    // let mockClearInputs = jest.fn();
+    // expect(mockHandleUserRatings).toHaveBeenCalled();
+    // expect(mockClearInputs).toHaveBeenCalled();
+    expect(fetchUser).toHaveBeenCalled();
+  })
+
+  it('')
 })

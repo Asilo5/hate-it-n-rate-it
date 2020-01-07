@@ -4,7 +4,7 @@ exports[`MoviesContainer should match snapshot with all information passing in c
 <section
   className="movies-container"
 >
-  <MoviesDisplay
+  <Connect(MoviesDisplay)
     average_rating={4}
     backdrop_path="https://image.tmdb.org/t/p/original//zTxHf9iIOCqRbxvl8W5QYKrsMLq.jpg"
     id={1}
