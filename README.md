@@ -34,4 +34,6 @@ And to view on your local browser:
 
 ![ezgif com-optimize](https://user-images.githubusercontent.com/32349614/71938137-b4096e00-316b-11ea-83d0-d3f5e4a447de.gif)
 
+![ezgif com-optimize (1)](https://user-images.githubusercontent.com/32349614/71938236-0185db00-316c-11ea-81d8-685afb1bdf55.gif)
 
+![ezgif com-optimize (2)](https://user-images.githubusercontent.com/32349614/71938291-2a0dd500-316c-11ea-9800-2e6fb1ef49d0.gif)
