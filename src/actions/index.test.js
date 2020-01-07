@@ -29,4 +29,30 @@ describe('actions', () => {
       expect(result).toEqual(expected);
     })
   })
+
+  describe('setUserRatings', () => {
+    it('should return an object containing type: "SET_USER_RATINGS" and the user', () => {
+      const expected = {
+        type: 'SET_USER_RATINGS',
+        ratedMovies: mockData.mockRatedMovies
+      }
+
+      const result = actions.setUserRatings(mockData.mockRatedMovies);
+
+      expect(result).toEqual(expected);
+    })
+  })
+
+  describe('hasError', () => {
+    it('should return an object containing type: "HAS_ERROR" and the user', () => {
+      const expected = {
+        type: 'HAS_ERROR',
+        error: mockData.mockError
+      }
+
+      const result = actions.hasError(mockData.mockError);
+
+      expect(result).toEqual(expected);
+    })
+  })
 })
