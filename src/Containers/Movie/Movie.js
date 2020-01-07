@@ -32,7 +32,7 @@ export class Movie extends Component {
     }
     
     render() {
-        const { average_rating, id, backdrop_path, overview, poster_path, release_date, title, userRatings} = this.props
+        const { average_rating, backdrop_path, overview, poster_path, release_date, title} = this.props
 
         return ( 
             <section className='movie'>
