@@ -6,12 +6,14 @@ import { connect } from 'react-redux';
 export const Header = ({ user }) => {
   return (
     <header> 
+      <div>
       <h1>Hate It 'N Rate It</h1>
-     <div>
-        {!user.name ? null : <p>Welcome {user.name}!</p>}
-        <NavBar />
-     </div>
-     <img src='http://www.thecareeravenue.com/Images/extras/spacer.png' alt='pattern decoration' />
+        <div>
+          {!user.name ? null : <p>Welcome {user.name}!</p>}
+          <NavBar />
+        </div>
+      </div>
+      <img src='http://www.thecareeravenue.com/Images/extras/spacer.png' alt='pattern decoration' />
    </header>
   )
 }
