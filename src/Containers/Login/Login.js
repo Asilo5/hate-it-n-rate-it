@@ -24,25 +24,26 @@ export class Login extends Component {
     fetchUser( email, password) 
       .then(data => {
         this.props.setUser(data);
+        this.handleUserRatings(data.user.id);
         this.setState({ userFound: true })
       })
-      .catch(err => {
+      .catch(() => {
         this.setState({ userFound: false });
         this.props.hasError('Email or password are incorrect, please try again!');
       });
-    this.handleUserRatings();
-    this.clearInputs();
-  }
-
-  clearInputs = () => {
-    this.setState({
-      email: '',
-      password: ''
-    })
-  }
-
-  handleUserRatings = () => {
-    fetchRatings()
+      this.clearInputs();
+    }
+    
+    clearInputs = () => {
+      this.setState({
+        email: '',
+        password: ''
+      })
+    }
+    
+    handleUserRatings = (userId) => {
+    console.log(userId);
+    fetchRatings(userId)
       .then(data => this.props.setUserRatings(data))
   }
 

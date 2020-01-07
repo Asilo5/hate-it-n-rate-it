@@ -20,10 +20,13 @@ exports[`Login should match the snapshot 1`] = `
       type="password"
       value=""
     />
+    <p
+      className="error"
+    />
     <NavLink
       className="login_button"
       onClick={[Function]}
-      to="/"
+      to="/login"
       type="button"
     >
       LOGIN 
