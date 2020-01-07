@@ -8,6 +8,7 @@ import Login from '../Login/Login';
 import Header from '../../Components/Header/Header';
 import Movie from '../Movie/Movie';
 import { getMovies } from '../../utils/apiCalls';
+import { bindActionCreators } from 'redux';
 
 
 export class App extends Component {
@@ -38,9 +39,11 @@ export class App extends Component {
   }
 }
 
-export const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => (
+  bindActionCreators({
   addMoviesData: movies => dispatch( addMoviesData(movies))
-})
+  }, dispatch)
+)
 
 export const mapStateToProps = ({ movies }) => ({
    movies
