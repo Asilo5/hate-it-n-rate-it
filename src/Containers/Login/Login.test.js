@@ -19,7 +19,6 @@ describe('Login', () => {
   };
   let mockError = 'No user found';
   let mockSetUser = jest.fn();
-  let mockHasError = mockError;
   let mockSetUserRatings = [1, 2, 2];
 
     beforeEach(() => {
@@ -103,5 +102,9 @@ describe('Login', () => {
     expect(wrapper.state('password')).toEqual('');
   })
 
+  it('should call fetchRatings when handleUserRatings is called', async () => { 
+    await wrapper.instance().handleSubmit();
+    expect(fetchRatings).toHaveBeenCalledWith(1);
+  })
 
 })
