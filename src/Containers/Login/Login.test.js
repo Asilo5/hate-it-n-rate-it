@@ -22,19 +22,52 @@ describe('Login', () => {
     email: 'bob@gmail.com'
   };
   let mockHasError = mockError;
-  let mocksetUserRatings = [1, 2, 2];
+  let mockSetUserRatings = [1, 2, 2];
 
     beforeEach(() => {
       wrapper = shallow(<Login user={mockUser}
                                 error={mockError}
                                 setUser={mockSetUser}
                                 hasError={mockHasError}
-                                setUserRatings={mocksetUserRatings}/>);
+                                setUserRatings={mockSetUserRatings}/>);
       
+      fetchUser.mockImplementation(() => {
+        return Promise.resolve(mockUser);
+      });
+      
+      fetchRatings.mockImplementation(() => {
+        return Promise.resolve(mockSetUserRatings);
+      }); 
     })
 
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  })
+
+  it('should call handleChange when input changes', () => {
+    wrapper.instance().handleChange = jest.fn();
+    const mockEvent = {
+       target: {
+         name: 'email',
+         value: 'bob@gmail.com'
+       }
+    };
+
+    wrapper.find('input').at(0).simulate('change', mockEvent);
+    expect(wrapper.instance().handleChange).toHaveBeenCalled();
+  })
+
+  it('should call handleChange when input changes', () => {
+    wrapper.instance().handleChange = jest.fn();
+    const mockEvent = {
+       target: {
+         name: 'password',
+         value: 3456756
+       }
+    };
+
+    wrapper.find('input').at(1).simulate('change', mockEvent);
+    expect(wrapper.instance().handleChange).toHaveBeenCalled();
   })
 })
