@@ -79,7 +79,7 @@ export class Movie extends Component {
     }
 } 
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
     addMoviesData: movies => dispatch(addMoviesData(movies)),
     setUserRatings: ratedMovies => dispatch(setUserRatings(ratedMovies))
   })
